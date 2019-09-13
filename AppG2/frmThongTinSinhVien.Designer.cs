@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -51,15 +52,18 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lnkChonAnhDaiDien = new System.Windows.Forms.LinkLabel();
+            this.btnCapNhat = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picAnhDaiDien = new System.Windows.Forms.PictureBox();
+            this.menuAvatar = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mniXoaAnhDaiDien = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAnhDaiDien)).BeginInit();
+            this.menuAvatar.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -159,7 +163,7 @@
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Location = new System.Drawing.Point(15, 167);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(526, 259);
+            this.panel1.Size = new System.Drawing.Size(526, 203);
             this.panel1.TabIndex = 7;
             // 
             // dataGridView1
@@ -173,7 +177,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(524, 210);
+            this.dataGridView1.Size = new System.Drawing.Size(524, 154);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -201,7 +205,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 235);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 179);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(524, 22);
             this.statusStrip1.TabIndex = 2;
@@ -259,35 +263,37 @@
             this.toolStripButton1.Size = new System.Drawing.Size(53, 22);
             this.toolStripButton1.Text = "Thêm";
             // 
-            // linkLabel1
+            // lnkChonAnhDaiDien
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(433, 140);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(94, 13);
-            this.linkLabel1.TabIndex = 8;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Chọn ảnh đại diện";
+            this.lnkChonAnhDaiDien.AutoSize = true;
+            this.lnkChonAnhDaiDien.Location = new System.Drawing.Point(428, 140);
+            this.lnkChonAnhDaiDien.Name = "lnkChonAnhDaiDien";
+            this.lnkChonAnhDaiDien.Size = new System.Drawing.Size(94, 13);
+            this.lnkChonAnhDaiDien.TabIndex = 8;
+            this.lnkChonAnhDaiDien.TabStop = true;
+            this.lnkChonAnhDaiDien.Text = "Chọn ảnh đại diện";
+            this.lnkChonAnhDaiDien.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkChonAnhDaiDien_LinkClicked);
             // 
-            // button2
+            // btnCapNhat
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Image = global::AppG2.Properties.Resources.update;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(353, 430);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 33);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Cập nhật";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCapNhat.Image = global::AppG2.Properties.Resources.update;
+            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCapNhat.Location = new System.Drawing.Point(353, 374);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(96, 33);
+            this.btnCapNhat.TabIndex = 9;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.BtnCapNhat_Click);
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Image = global::AppG2.Properties.Resources.deleete2;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(455, 430);
+            this.button1.Location = new System.Drawing.Point(455, 374);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 33);
             this.button1.TabIndex = 9;
@@ -295,25 +301,43 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // picAnhDaiDien
             // 
-            this.pictureBox1.Image = global::AppG2.Properties.Resources.avatar;
-            this.pictureBox1.Location = new System.Drawing.Point(412, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 131);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picAnhDaiDien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picAnhDaiDien.ContextMenuStrip = this.menuAvatar;
+            this.picAnhDaiDien.Image = global::AppG2.Properties.Resources.avatar;
+            this.picAnhDaiDien.Location = new System.Drawing.Point(412, 6);
+            this.picAnhDaiDien.Name = "picAnhDaiDien";
+            this.picAnhDaiDien.Size = new System.Drawing.Size(126, 131);
+            this.picAnhDaiDien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAnhDaiDien.TabIndex = 0;
+            this.picAnhDaiDien.TabStop = false;
+            this.picAnhDaiDien.DragDrop += new System.Windows.Forms.DragEventHandler(this.PicAnhDaiDien_DragDrop);
+            this.picAnhDaiDien.DragEnter += new System.Windows.Forms.DragEventHandler(this.PicAnhDaiDien_DragEnter);
+            // 
+            // menuAvatar
+            // 
+            this.menuAvatar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniXoaAnhDaiDien});
+            this.menuAvatar.Name = "menuAvatar";
+            this.menuAvatar.Size = new System.Drawing.Size(181, 48);
+            // 
+            // mniXoaAnhDaiDien
+            // 
+            this.mniXoaAnhDaiDien.Image = global::AppG2.Properties.Resources.deleete2;
+            this.mniXoaAnhDaiDien.Name = "mniXoaAnhDaiDien";
+            this.mniXoaAnhDaiDien.Size = new System.Drawing.Size(180, 22);
+            this.mniXoaAnhDaiDien.Text = "Xóa ảnh đại diện";
+            this.mniXoaAnhDaiDien.Click += new System.EventHandler(this.MniXoaAnhDaiDien_Click);
             // 
             // frmThongTinSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 467);
-            this.ControlBox = false;
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(550, 411);
+            this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.lnkChonAnhDaiDien);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -325,7 +349,9 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picAnhDaiDien);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmThongTinSinhVien";
             this.Text = "Thông tin sinh viên";
             this.panel1.ResumeLayout(false);
@@ -335,7 +361,8 @@
             this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAnhDaiDien)).EndInit();
+            this.menuAvatar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,7 +370,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picAnhDaiDien;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -367,8 +394,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lnkChonAnhDaiDien;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.ContextMenuStrip menuAvatar;
+        private System.Windows.Forms.ToolStripMenuItem mniXoaAnhDaiDien;
     }
 }
