@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppG2.Controller;
+using AppG2.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppG2
+namespace AppG2.View
 {
     public partial class frmThongTinSinhVien : Form
     {
@@ -19,7 +21,7 @@ namespace AppG2
         string pathAvatarImg;
         #endregion
 
-        public frmThongTinSinhVien()
+        public frmThongTinSinhVien(string maSinhVien)
         {
             InitializeComponent();
             pathDirectoryImg = Application.StartupPath + "\\Img";
@@ -31,6 +33,27 @@ namespace AppG2
                 picAnhDaiDien.Image = Image.FromStream(fileStream);
                 fileStream.Close();
             }
+
+            bdsQuaTrinhHocTap.DataSource = null;
+            dtgQuaTrinhHocTap.AutoGenerateColumns = false;
+
+            var student = StudentService.GetStudent(maSinhVien);
+            if (student == null)
+                throw new Exception("Không tồn tại sinh viên này");
+            else
+            {
+                txtMaSinhVien.Text = student.IDStudent;
+                txtHo.Text = student.LastName;
+                txtTen.Text = student.FirstName;
+                txtQueQuan.Text = student.POB;
+                dtpNgaySinh.Value = student.DOB;
+                chkGioiTinh.Checked = student.Gender == GENDER.Male;
+                if (student.ListHistoryLearning != null)
+                {
+                    bdsQuaTrinhHocTap.DataSource = student.ListHistoryLearning;
+                }
+            }
+            dtgQuaTrinhHocTap.DataSource = bdsQuaTrinhHocTap;
         }
 
         private void LnkChonAnhDaiDien_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
