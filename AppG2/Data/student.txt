@@ -1,0 +1,3 @@
+﻿102T100100#Nguyễn#Zũng#Male#2000-03-15#Huế
+103T1001001#Trần Thị#Chẹo#Female#2001-04-16#Đà Nẵng
+104T1001002#Ronaldo#Trần#Other#2001-03-17#Bạc Liêu

@@ -41,11 +41,14 @@
             this.txtHo = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgQuaTrinhHocTap = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.lnkChonAnhDaiDien = new System.Windows.Forms.LinkLabel();
@@ -56,9 +59,6 @@
             this.mniXoaAnhDaiDien = new System.Windows.Forms.ToolStripMenuItem();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.bdsQuaTrinhHocTap = new System.Windows.Forms.BindingSource(this.components);
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgQuaTrinhHocTap)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -183,6 +183,25 @@
             this.dtgQuaTrinhHocTap.Size = new System.Drawing.Size(524, 154);
             this.dtgQuaTrinhHocTap.TabIndex = 0;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "IDHistoryLearning";
+            this.Column1.HeaderText = "STT";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Period";
+            this.Column2.HeaderText = "Thời gian học";
+            this.Column2.Name = "Column2";
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "Address";
+            this.Column4.HeaderText = "Địa chỉ";
+            this.Column4.Name = "Column4";
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -203,7 +222,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
-            this.toolStripButton3,
+            this.btnXoa,
             this.toolStripButton2,
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -218,14 +237,15 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(91, 22);
             this.toolStripLabel1.Text = "Quá trình học tập";
             // 
-            // toolStripButton3
+            // btnXoa
             // 
-            this.toolStripButton3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton3.Image = global::AppG2.Properties.Resources.delete;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(45, 22);
-            this.toolStripButton3.Text = "Xóa";
+            this.btnXoa.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnXoa.Image = global::AppG2.Properties.Resources.delete;
+            this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(45, 22);
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // toolStripButton2
             // 
@@ -319,25 +339,6 @@
             this.txtTen.Size = new System.Drawing.Size(85, 20);
             this.txtTen.TabIndex = 6;
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "IDHistoryLearning";
-            this.Column1.HeaderText = "STT";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Period";
-            this.Column2.HeaderText = "Thời gian học";
-            this.Column2.Name = "Column2";
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "Address";
-            this.Column4.HeaderText = "Địa chỉ";
-            this.Column4.Name = "Column4";
-            // 
             // frmThongTinSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,7 +400,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.LinkLabel lnkChonAnhDaiDien;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCapNhat;

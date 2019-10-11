@@ -21,12 +21,21 @@ namespace AppG2.View
         string pathAvatarImg;
         #endregion
 
+        #region Path data file
+        string pathStudentDataFile;
+        string pathLearningHistoryDataFile;
+        #endregion
+
         public frmThongTinSinhVien(string maSinhVien)
         {
             InitializeComponent();
+
             pathDirectoryImg = Application.StartupPath + "\\Img";
             pathAvatarImg = pathDirectoryImg + "\\avatar.png";
             picAnhDaiDien.AllowDrop = true;
+
+            pathStudentDataFile = Application.StartupPath + @"\Data\student.txt";
+            pathLearningHistoryDataFile = Application.StartupPath + @"\Data\learninghistory.txt";
             if (File.Exists(pathAvatarImg))
             {
                 FileStream fileStream = new FileStream(pathAvatarImg, FileMode.Open, FileAccess.Read);
@@ -37,11 +46,14 @@ namespace AppG2.View
             bdsQuaTrinhHocTap.DataSource = null;
             dtgQuaTrinhHocTap.AutoGenerateColumns = false;
 
-            var student = StudentService.GetStudent(maSinhVien);
+            //var student = StudentService.GetStudent(maSinhVien);
+            var student = StudentService.GetStudent(pathStudentDataFile, maSinhVien);
             if (student == null)
                 throw new Exception("Không tồn tại sinh viên này");
             else
             {
+                student.ListHistoryLearning = StudentService.GetHistoryLearning(
+                    pathLearningHistoryDataFile, maSinhVien);
                 txtMaSinhVien.Text = student.IDStudent;
                 txtHo.Text = student.LastName;
                 txtTen.Text = student.FirstName;
@@ -111,6 +123,26 @@ namespace AppG2.View
         {
             picAnhDaiDien.Image = Properties.Resources.avatar;
             File.Delete(pathAvatarImg);
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            var rs = MessageBox.Show(
+                 "Bạn có chắc là muốn xóa dữ liệu này không?",
+                 "Thông báo",
+                 MessageBoxButtons.OKCancel,
+                 MessageBoxIcon.Warning);
+            if (rs == DialogResult.OK)
+            {
+                //Viết code xóa dữ liệu tại đây
+                var history = bdsQuaTrinhHocTap.Current as HistoryLearning;
+                MessageBox.Show(
+                    "Bạn đã xóa thành công. Địa chỉ: " + history.Address);
+            }
+            else
+            {
+                MessageBox.Show("Bạn đã không xóa");
+            }
         }
     }
 }

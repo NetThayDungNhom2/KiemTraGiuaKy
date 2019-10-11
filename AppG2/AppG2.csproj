@@ -116,5 +116,11 @@
   <ItemGroup>
     <None Include="Resources\deleete2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\learninghistory.txt" />
+    <Content Include="Data\student.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
