@@ -17,7 +17,7 @@ namespace AppG2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmThongTinSinhVien("102T100100"));
+            Application.Run(new DanhBa());
         }
     }
 }

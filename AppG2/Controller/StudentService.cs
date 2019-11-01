@@ -15,7 +15,7 @@ namespace AppG2.Controller
         /// </summary>
         /// <param name="idStudent">Mã sinh viên</param>
         /// <returns>Sinh viên có mã tương ứng hoặc null</returns>
-        public static Student GetStudent(string idStudent)
+        /*public static Student GetStudent(string idStudent)
         {
             Student student = new Student
             {
@@ -41,7 +41,7 @@ namespace AppG2.Controller
             }
             return student;
         }
-
+        */
         /// <summary>
         /// Lấy sinh viên theo mã sinh viên từ File
         /// </summary>

@@ -48,6 +48,7 @@ namespace AppG2.View
 
             //var student = StudentService.GetStudent(maSinhVien);
             var student = StudentService.GetStudent(pathStudentDataFile, maSinhVien);
+            Console.WriteLine(student);
             if (student == null)
                 throw new Exception("Không tồn tại sinh viên này");
             else
@@ -143,6 +144,13 @@ namespace AppG2.View
             {
                 MessageBox.Show("Bạn đã không xóa");
             }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            Form1 f1 = new Form1();
+            f1.ShowDialog();
         }
     }
 }
