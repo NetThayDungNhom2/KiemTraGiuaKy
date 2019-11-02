@@ -23,7 +23,7 @@ namespace AppG2.View
         public DanhBa()
         {
             InitializeComponent();
-        pathClientDataFile = @"D:\Documents\.NET\C#\workspace\App2\AppG22019\AppG2\Data\client.txt";
+        pathClientDataFile = @"..\..\Data\client.txt";
         bindingSource1.DataSource = null;       
         dataGridView1.AutoGenerateColumns = false;
         List<ClientContact> client = ContactService.GetClientContact(pathClientDataFile);
